@@ -25,16 +25,16 @@ function createGrid(num) {
     sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
         sketchDiv.addEventListener("mouseenter", () => {
-            if (buttonState === "fill") {
                 sketchDivs.forEach(sketchDiv => {
                     sketchDiv.addEventListener("click", () => {
-                        sketchDivs.forEach(sketchDiv => {   
-                            sketchDiv.style.backgroundColor = colourSelect;
+                        sketchDivs.forEach(sketchDiv => {  
+                            if(buttonState === "fill") {
+                                sketchDiv.style.backgroundColor = colourSelect;
+                            } 
                         });
                     });
                 });
-            }
-            else if(mouseDown) {
+            if(mouseDown) {
                 if (buttonState === "erase") {
                     sketchDiv.style.backgroundColor = "";
                 }
