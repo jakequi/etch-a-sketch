@@ -1,11 +1,11 @@
 let colourSelect;
 let sketchDivs;
 let buttonState = "draw";
-let mouseDown = false;
+let mouseDown = true;
 const drawButton = document.querySelector(".draw-button");
 const eraseButton = document.querySelector(".erase-button");
 const colourPicker = document.querySelector(".colour-picker");
-const gridReset = document.querySelector(".grid-reset");
+const clearGrid = document.querySelector(".clear-grid");
 const gridSize = document.querySelector(".grid-size");
 const holdClickMode = document.querySelector(".hold-click-mode")
 const rainbowColours = document.querySelector(".rainbow-mode")
@@ -70,7 +70,7 @@ gridSize.addEventListener("click", () => {
     createGrid(newNum);
 });
 
-gridReset.addEventListener("click", () => {
+clearGrid.addEventListener("click", () => {
     const sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
         sketchDiv.style.backgroundColor = "";
@@ -90,13 +90,8 @@ gridVisible.addEventListener("change", () => {
 });
 
 holdClickMode.addEventListener("change", () => {
-    if(holdClickMode.checked) {
-        mouseDown = false;
-    }
-    else {
-        mouseDown = true;
-    }
-})
+    mouseDown = !holdClickMode.checked;
+});
 
 document.addEventListener("mousedown", () => {
     if (holdClickMode.checked) {

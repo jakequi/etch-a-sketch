@@ -7,13 +7,6 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-hr {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
-}
-
 .header,
 .footer {
     display: flex;
