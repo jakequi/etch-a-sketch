@@ -45,8 +45,8 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 70vh;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .controls button {
