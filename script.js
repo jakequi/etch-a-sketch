@@ -4,7 +4,7 @@ let buttonState = "draw";
 let mouseDown = true;
 const drawButton = document.querySelector(".draw-button");
 const eraseButton = document.querySelector(".erase-button");
-const fillButton = document.querySelector(".fill-button")
+// const fillButton = document.querySelector(".fill-button")
 const colourPicker = document.querySelector(".colour-picker");
 const clearGrid = document.querySelector(".clear-grid");
 const gridSize = document.querySelector(".grid-size");
@@ -25,15 +25,15 @@ function createGrid(num) {
     sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
         sketchDiv.addEventListener("mouseenter", () => {
-                sketchDivs.forEach(sketchDiv => {
-                    sketchDiv.addEventListener("click", () => {
-                        sketchDivs.forEach(sketchDiv => {  
-                            if(buttonState === "fill") {
-                                sketchDiv.style.backgroundColor = colourSelect;
-                            } 
-                        });
-                    });
-                });
+                // sketchDivs.forEach(sketchDiv => {
+                //     sketchDiv.addEventListener("click", () => {
+                //         sketchDivs.forEach(sketchDiv => {  
+                //             if(buttonState === "fill") {
+                //                 sketchDiv.style.backgroundColor = colourSelect;
+                //             } 
+                //         });
+                //     });
+                // });
             if(mouseDown) {
                 if (buttonState === "erase") {
                     sketchDiv.style.backgroundColor = "";
@@ -68,12 +68,12 @@ eraseButton.addEventListener("click", () => {
     buttonState = "erase";
 });
 
-fillButton.addEventListener("click", () => {
-    drawButton.classList.remove("toggled-button");
-    eraseButton.classList.remove("toggled-button")
-    fillButton.classList.add("toggled-button");
-    buttonState = "fill";
-});
+// fillButton.addEventListener("click", () => {
+//     drawButton.classList.remove("toggled-button");
+//     eraseButton.classList.remove("toggled-button")
+//     fillButton.classList.add("toggled-button");
+//     buttonState = "fill";
+// });
 
 colourPicker.addEventListener("change", () => {
     if (!rainbowColours.checked) {
