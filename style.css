@@ -1,33 +1,136 @@
 body {
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+}
+
+hr {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.header,
+.footer {
+    display: flex;
+    background-color: #2D3142;
+    color: white;
+}
+
+.header {
+    justify-content: space-between;
     align-items: center;
 }
 
-.contains-button {
-    margin: 8px;
+.logo {
+    font-family: sans-serif;
+    margin-left: 40px;
 }
 
-.contains-button button {
-    min-height: 3vh;
-    min-width: 12vw;
-    font-size: 16px;
+.github-logo {
+    size: 48px;
+    width: 48px;
+    margin-right: 40px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAE8FF;
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70vh;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.controls button {
+    background-color: #EAE8FF;
+}
+
+.control-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.control-left input {
+    height: 34px;
+    background-color: #EAE8FF;
+}
+
+.control-left button {
+    font-size: 24px;
+}
+
+.control-left .toggled-button {
+    background-color: #ADACB5;
+}
+
+.solid {
+    height: 100%;
+}
+
+.control-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.control-right button {
+    height: 32px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    text-wrap: wrap;
+    width: 15;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    height: calc(100vmin - 64px);
-    width: calc(100vmin - 64px);
     margin: 24px;
     margin-top: 8px;
+    background-color: white;
+    width: 75vh;
 }
 
 .sketch-grid {
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 0.1px solid rgba(0, 0, 0, 0.116);
     aspect-ratio: 1;
+}
+
+.sketch-grid-no-border {
+    border: 0px
+}
+
+.footer {
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    font-size: 16px;
 }

@@ -6,13 +6,45 @@
         <title>Document</title>
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="contains-button">
-            <button>New Grid</button>
-        </div>
-        <div class="container">
+        <div class="header">
+            <div class="logo"> 
+                <h1>sketchscape</h1>
+            </div>
+            <div class="links">
+                <a href="https://github.com/jakequi" target="_blank" rel="noopener noreferrer"><img class = "github-logo" src="images/github-logo.png" alt="Github icon"></a>
+            </div>
+        </div> 
+        <div class="content">
+            <div class="controls">
+                <div class="control-left">
+                    <input type="color" class="colour-picker">
+                    <button class="draw-button toggled-button">🖊️</button>
+                    <button class="erase-button">🧼</button>
+                </div>
+                <div class="control-right">
+                    <div class="grid-buttons">
+                        <button class="grid-reset">Reset grid</button>
+                        <button class="grid-size">Set grid size</button>
+                    </div>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" class="hold-click-mode" checked>Hold click mode</label>
+                        <label><input type="checkbox" class="grid-visible" checked>Grid visible</label>
+                        <label><input type="checkbox" class="rainbow-mode">Rainbow mode</label>                  
+                    </div>
+                </div>
+                
+            </div>
+            <div class="container">
 
+            </div>
+        </div>
+        <div class="footer">
+            <p>Jake Hargreaves © 2024</p>
         </div>
     </body>
 </html>
