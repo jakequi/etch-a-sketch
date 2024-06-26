@@ -4,6 +4,7 @@ let buttonState = "draw";
 let mouseDown = true;
 const drawButton = document.querySelector(".draw-button");
 const eraseButton = document.querySelector(".erase-button");
+const fillButton = document.querySelector(".fill-button")
 const colourPicker = document.querySelector(".colour-picker");
 const clearGrid = document.querySelector(".clear-grid");
 const gridSize = document.querySelector(".grid-size");
@@ -24,11 +25,20 @@ function createGrid(num) {
     sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
         sketchDiv.addEventListener("mouseenter", () => {
-            if (mouseDown) {
+            if (buttonState === "fill") {
+                sketchDivs.forEach(sketchDiv => {
+                    sketchDiv.addEventListener("click", () => {
+                        sketchDivs.forEach(sketchDiv => {   
+                            sketchDiv.style.backgroundColor = colourSelect;
+                        });
+                    });
+                });
+            }
+            else if(mouseDown) {
                 if (buttonState === "erase") {
                     sketchDiv.style.backgroundColor = "";
                 }
-                else if (!sketchDiv.style.backgroundColor) {
+                else {
                     if (rainbowColours.checked) {
                         sketchDiv.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
                     }
@@ -47,13 +57,22 @@ createGrid(32);
 drawButton.addEventListener("click", () => {
     drawButton.classList.add("toggled-button");
     eraseButton.classList.remove("toggled-button")
+    fillButton.classList.remove("toggled-button")
     buttonState = "draw";
 });
 
 eraseButton.addEventListener("click", () => {
     drawButton.classList.remove("toggled-button");
     eraseButton.classList.add("toggled-button")
+    fillButton.classList.remove("toggled-button")
     buttonState = "erase";
+});
+
+fillButton.addEventListener("click", () => {
+    drawButton.classList.remove("toggled-button");
+    eraseButton.classList.remove("toggled-button")
+    fillButton.classList.add("toggled-button");
+    buttonState = "fill";
 });
 
 colourPicker.addEventListener("change", () => {
