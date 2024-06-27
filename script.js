@@ -15,7 +15,6 @@ const rainbowColours = document.querySelector(".rainbow-mode")
 const gridVisible = document.querySelector(".grid-visible")
 
 function createGrid(num) {
-    const container = document.querySelector(".container");
     container.textContent = "";
     for (let i = 0; i < num ** 2; i++) {
         const newDiv = document.createElement("div");
