@@ -27,25 +27,31 @@ function createGrid(num) {
     sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
         sketchDiv.addEventListener("mouseenter", () => {
-            if(mouseDown) {
-                if (buttonState === "erase") {
-                    sketchDiv.style.backgroundColor = "";
-                }
-                else {
-                    if (rainbowColours.checked) {
-                        sketchDiv.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-                    }
-                    else{
-                        sketchDiv.style.backgroundColor = colourSelect;
-                    }
-                } 
+            if (mouseDown) {
+                changeColor(sketchDiv);
             }
+        });
+        sketchDiv.addEventListener("click", () => {
+            changeColor(sketchDiv);
         });
     });
     gridVisible.checked = true;
 }
 
 createGrid(32);
+
+
+function changeColor(sketchDiv) {
+    if (buttonState === "erase") {
+        sketchDiv.style.backgroundColor = "";
+    } else if (buttonState === "draw") {
+        if (rainbowColours.checked) {
+            sketchDiv.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        } else {
+            sketchDiv.style.backgroundColor = colourSelect;
+        }
+    }
+}
 
 container.addEventListener("click", () => {
     if (buttonState === "fill") {
