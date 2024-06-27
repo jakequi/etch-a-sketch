@@ -2,9 +2,11 @@ let colourSelect;
 let sketchDivs;
 let buttonState = "draw";
 let mouseDown = true;
+const stylesheet = document.styleSheets[0];
+const container = document.querySelector(".container");
 const drawButton = document.querySelector(".draw-button");
 const eraseButton = document.querySelector(".erase-button");
-// const fillButton = document.querySelector(".fill-button")
+const fillButton = document.querySelector(".fill-button")
 const colourPicker = document.querySelector(".colour-picker");
 const clearGrid = document.querySelector(".clear-grid");
 const gridSize = document.querySelector(".grid-size");
@@ -25,15 +27,6 @@ function createGrid(num) {
     sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
         sketchDiv.addEventListener("mouseenter", () => {
-                // sketchDivs.forEach(sketchDiv => {
-                //     sketchDiv.addEventListener("click", () => {
-                //         sketchDivs.forEach(sketchDiv => {  
-                //             if(buttonState === "fill") {
-                //                 sketchDiv.style.backgroundColor = colourSelect;
-                //             } 
-                //         });
-                //     });
-                // });
             if(mouseDown) {
                 if (buttonState === "erase") {
                     sketchDiv.style.backgroundColor = "";
@@ -54,6 +47,15 @@ function createGrid(num) {
 
 createGrid(32);
 
+container.addEventListener("click", () => {
+    if (buttonState === "fill") {
+        let nestedDivs = container.querySelectorAll("div")
+        for (let i = 0; i < nestedDivs.length; i++) {
+            nestedDivs[i].style.backgroundColor = colourSelect;
+        }
+    }
+});
+
 drawButton.addEventListener("click", () => {
     drawButton.classList.add("toggled-button");
     eraseButton.classList.remove("toggled-button")
@@ -68,17 +70,15 @@ eraseButton.addEventListener("click", () => {
     buttonState = "erase";
 });
 
-// fillButton.addEventListener("click", () => {
-//     drawButton.classList.remove("toggled-button");
-//     eraseButton.classList.remove("toggled-button")
-//     fillButton.classList.add("toggled-button");
-//     buttonState = "fill";
-// });
+fillButton.addEventListener("click", () => {
+    drawButton.classList.remove("toggled-button");
+    eraseButton.classList.remove("toggled-button")
+    fillButton.classList.add("toggled-button");
+    buttonState = "fill";
+});
 
 colourPicker.addEventListener("change", () => {
-    if (!rainbowColours.checked) {
-        colourSelect = colourPicker.value;
-    }
+    colourSelect = colourPicker.value;
 });
 
 gridSize.addEventListener("click", () => {
