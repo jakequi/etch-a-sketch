@@ -2,6 +2,7 @@ let colourSelect;
 let sketchDivs;
 let buttonState = "draw";
 let mouseDown = true;
+colourSelect = "black";
 const stylesheet = document.styleSheets[0];
 const container = document.querySelector(".container");
 const drawButton = document.querySelector(".draw-button");
@@ -21,7 +22,6 @@ function createGrid(num) {
         newDiv.setAttribute("class", "sketch-grid");
         newDiv.style.flexBasis = `${100 / num}%`;
         container.appendChild(newDiv);
-        colourSelect = "black";
     }
     sketchDivs = document.querySelectorAll(".sketch-grid");
     sketchDivs.forEach(sketchDiv => {
